@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+option java_multiple_files = true;
+option java_package = "br.com.tony.grpc";
+
+package br.com.tony.grpc;
+
+service CreatePersonService {
+  rpc CreatePerson(PersonRequest) returns (PersonResponse);
+}
+
+service CreateSubscriberService {
+  rpc CreateSubscriber(PersonRequest) returns (EmptyResponse);
+}
+
+message PersonRequest {
+  google.protobuf.StringValue name = 1;
+  google.protobuf.StringValue email = 2;
+  google.protobuf.StringValue cpf = 3;
+  //  Removemos:
+  //  google.protobuf.StringValue zipCode = 4;
+
+  //  Adicionamos:
+  reserved 4;
+  reserved "zipCode";
+}
+
+message PersonResponse {
+  google.protobuf.Int64Value id = 1;
+  google.protobuf.StringValue name = 2;
+  google.protobuf.StringValue email = 3;
+}
+
+message EmptyResponse {}

@@ -1,0 +1,6 @@
+micronaut:
+  application:
+    name: create-subscriber
+grpc:
+  server:
+    port: 50052
