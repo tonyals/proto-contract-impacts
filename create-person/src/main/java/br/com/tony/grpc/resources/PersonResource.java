@@ -1,7 +1,7 @@
 package br.com.tony.grpc.resources;
 
 import br.com.tony.grpc.CreatePersonServiceGrpc;
-import br.com.tony.grpc.PersonMessage;
+import br.com.tony.grpc.PersonRequest;
 import br.com.tony.grpc.PersonResponse;
 import br.com.tony.grpc.dto.PersonInputDTO;
 import br.com.tony.grpc.dto.PersonOutputDTO;
@@ -25,14 +25,14 @@ public class PersonResource extends CreatePersonServiceGrpc.CreatePersonServiceI
     }
 
     @Override
-    public void createPerson(PersonMessage request,
+    public void createPerson(PersonRequest request,
                              StreamObserver<PersonResponse> responseObserver) {
 
         try {
             PersonOutputDTO outputDTO = personService.create(PersonInputDTO
                     .builder()
-                    .setName(request.getName().getValue())
-                    .setEmail(request.getEmail().getValue()))
+                    .setName(request.getName().getValue()))
+//                    .setEmail(request.getEmail().getValue()))
                     .build();
 
             this.subscriberIntegration.sendToSubscriberService(request);

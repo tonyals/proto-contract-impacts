@@ -20,7 +20,6 @@ public class SubscriberResource extends CreateSubscriberServiceGrpc.CreateSubscr
         LOGGER.info("Nome: {}", request.getName().getValue());
         LOGGER.info("Email: {}", request.getEmail().getValue());
         LOGGER.info("CPF: {}", request.getCpf().getValue());
-        System.out.println(request.getCpf().getValue());
 
         responseObserver.onNext(EmptyResponse.newBuilder().build());
         responseObserver.onCompleted();
