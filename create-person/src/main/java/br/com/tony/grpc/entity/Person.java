@@ -13,13 +13,15 @@ public class Person {
     private Long id;
     private String name;
     private String email;
+    private String cpf;
 
     public Person() {
     }
 
-    public Person(String name, String email) {
+    public Person(String name, String email, String cpf) {
         this.name = name;
         this.email = email;
+        this.cpf = cpf;
     }
 
     public Long getId() {
@@ -32,5 +34,9 @@ public class Person {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getCpf() {
+        return cpf;
     }
 }

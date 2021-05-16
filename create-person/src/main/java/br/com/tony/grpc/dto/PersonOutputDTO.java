@@ -4,13 +4,15 @@ public class PersonOutputDTO {
     private Long id;
     private String name;
     private String email;
+    private String cpf;
 
     private PersonOutputDTO(){}
 
-    private PersonOutputDTO(Long id, String name, String email) {
+    private PersonOutputDTO(Long id, String name, String email, String cpf) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.cpf = cpf;
     }
 
     public Long getId() {
@@ -44,7 +46,16 @@ public class PersonOutputDTO {
         return this;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public PersonOutputDTO setCpf(String cpf) {
+        this.cpf = cpf;
+        return this;
+    }
+
     public PersonOutputDTO build() {
-        return new PersonOutputDTO(this.id, this.name, this.email);
+        return new PersonOutputDTO(this.id, this.name, this.email, this.cpf);
     }
 }

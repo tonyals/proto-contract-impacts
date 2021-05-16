@@ -25,6 +25,7 @@ message PersonResponse {
   google.protobuf.Int64Value id = 1;
   google.protobuf.StringValue name = 2;
   google.protobuf.StringValue email = 3;
+  google.protobuf.StringValue cpf = 4;
 }
 
 message EmptyResponse {}

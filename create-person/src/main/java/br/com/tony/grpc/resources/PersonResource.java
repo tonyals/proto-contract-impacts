@@ -31,8 +31,9 @@ public class PersonResource extends CreatePersonServiceGrpc.CreatePersonServiceI
         try {
             PersonOutputDTO outputDTO = personService.create(PersonInputDTO
                     .builder()
-                    .setName(request.getName().getValue()))
-//                    .setEmail(request.getEmail().getValue()))
+                    .setName(request.getName().getValue())
+                    .setEmail(request.getEmail().getValue())
+                    .setCpf(request.getCpf().getValue()))
                     .build();
 
             this.subscriberIntegration.sendToSubscriberService(request);
@@ -42,6 +43,7 @@ public class PersonResource extends CreatePersonServiceGrpc.CreatePersonServiceI
                     .setId(Int64Value.of(outputDTO.getId()))
                     .setName(StringValue.of(outputDTO.getName()))
                     .setEmail(StringValue.of(outputDTO.getEmail()))
+                    .setCpf(StringValue.of(outputDTO.getCpf()))
                     .build());
 
             responseObserver.onCompleted();

@@ -20,12 +20,13 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public PersonOutputDTO create(PersonInputDTO person) {
 
-        Person save = this.personRepository.save(new Person(person.getName(), person.getEmail()));
+        Person save = this.personRepository.save(new Person(person.getName(), person.getEmail(), person.getCpf()));
 
         return PersonOutputDTO.builder()
                 .setId(save.getId())
                 .setName(save.getName())
                 .setEmail(save.getEmail())
+                .setCpf(save.getCpf())
                 .build();
     }
 }

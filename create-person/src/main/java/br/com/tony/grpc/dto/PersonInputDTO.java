@@ -4,13 +4,15 @@ public class PersonInputDTO {
 
     private String name;
     private String email;
+    private String cpf;
 
     private PersonInputDTO() {
     }
 
-    private PersonInputDTO(String name, String email) {
+    private PersonInputDTO(String name, String email, String cpf) {
         this.name = name;
         this.email = email;
+        this.cpf = cpf;
     }
 
     public static PersonInputDTO builder() {
@@ -27,8 +29,13 @@ public class PersonInputDTO {
         return this;
     }
 
+    public PersonInputDTO setCpf(String cpf) {
+        this.cpf = cpf;
+        return this;
+    }
+
     public PersonInputDTO build() {
-        return new PersonInputDTO(this.name, this.email);
+        return new PersonInputDTO(this.name, this.email, this.cpf);
     }
 
     public String getName() {
@@ -37,5 +44,9 @@ public class PersonInputDTO {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getCpf() {
+        return cpf;
     }
 }

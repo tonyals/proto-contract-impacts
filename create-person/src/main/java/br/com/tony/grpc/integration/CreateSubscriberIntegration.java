@@ -20,7 +20,7 @@ public class CreateSubscriberIntegration {
     public void sendToSubscriberService(PersonRequest request) {
         LOGGER.info("==== Enviando requisição ====");
         LOGGER.info("Nome: {}", request.getName().getValue());
-//        LOGGER.info("Email: {}", request.getEmail().getValue());
+        LOGGER.info("Email: {}", request.getEmail().getValue());
         LOGGER.info("CPF: {}", request.getCpf().getValue());
         this.channelFactory.createSubscriberStub().createSubscriber(request);
     }
