@@ -5,8 +5,7 @@ import "google/protobuf/wrappers.proto";
 option java_multiple_files = true;
 option java_package = "br.com.tony.grpc";
 
-// Antes: br.com.tony.grpc
-package br.com.tony.grpc.other;
+package br.com.tony.grpc;
 
 service CreatePersonService {
   rpc CreatePerson(PersonRequest) returns (PersonResponse);
