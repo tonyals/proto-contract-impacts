@@ -19,6 +19,8 @@ message PersonRequest {
   google.protobuf.StringValue name = 1;
   google.protobuf.StringValue email = 2;
   google.protobuf.StringValue cpf = 3;
+  //  Adicionado:
+  google.protobuf.StringValue zip_code = 4;
 }
 
 message PersonResponse {
