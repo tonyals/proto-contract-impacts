@@ -8,15 +8,19 @@ option java_package = "br.com.tony.grpc";
 package br.com.tony.grpc;
 
 service CreatePersonService {
-  rpc CreatePerson(PersonRequest) returns (PersonResponse);
+  rpc CreatePerson(PersonMessage) returns (PersonResponse);
 }
 
 service CreateSubscriberService {
-  rpc CreateSubscriber(PersonRequest) returns (EmptyResponse);
+  rpc CreateSubscriber(PersonMessage) returns (EmptyResponse);
 }
 
-message PersonRequest {
-  google.protobuf.StringValue name = 1;
+//  Nome anterior: PersonRequest
+//  Nome atual: PersonMessage
+message PersonMessage {
+  //  Nome anterior: name
+  //  Nome atual: person_name
+  google.protobuf.StringValue person_name = 1;
   google.protobuf.StringValue email = 2;
   google.protobuf.StringValue cpf = 3;
 }

@@ -1,6 +1,6 @@
 package br.com.tony.grpc.integration;
 
-import br.com.tony.grpc.PersonRequest;
+import br.com.tony.grpc.PersonMessage;
 import br.com.tony.grpc.config.ChannelFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +17,9 @@ public class CreateSubscriberIntegration {
         this.channelFactory = channelFactory;
     }
 
-    public void sendToSubscriberService(PersonRequest request) {
+    public void sendToSubscriberService(PersonMessage request) {
         LOGGER.info("==== Enviando requisição ====");
-        LOGGER.info("Nome: {}", request.getName().getValue());
+        LOGGER.info("Nome: {}", request.getPersonName().getValue());
         LOGGER.info("Email: {}", request.getEmail().getValue());
         LOGGER.info("CPF: {}", request.getCpf().getValue());
         this.channelFactory.createSubscriberStub().createSubscriber(request);
