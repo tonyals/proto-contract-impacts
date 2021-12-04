@@ -15,9 +15,10 @@ service CreateSubscriberService {
   rpc CreateSubscriber(PersonRequest) returns (EmptyResponse);
 }
 
+// Campo name e campo email tiveram os assign field number trocados:
 message PersonRequest {
-  google.protobuf.StringValue name = 1;
-  google.protobuf.StringValue email = 2;
+  google.protobuf.StringValue name = 2;
+  google.protobuf.StringValue email = 1;
   google.protobuf.StringValue cpf = 3;
 }
 
